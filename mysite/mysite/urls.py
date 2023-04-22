@@ -14,8 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('blog/', include('blog.urls', namespace='blog')),
+    
 ]
+
+'''The new URL pattern defined with include refers to the URL patterns defined in the blog application
+    so that they are included under the blog/ path. You include these patterns under the namespace blog .
+    Namespaces have to be unique across your entire project. Later, you will refer to your blog URLs easily
+    by using the namespace followed by a colon and the URL name, for example, blog:post_list and
+    blog:post_detail . You can learn more about URL namespaces at https://docs.djangoproject.
+    com/en/4.1/topics/http/urls/#url-namespaces .
+'''
