@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # The BlogConfig class is the application configuration. 
+    # Now Django knows that the application is active for this project 
+    # and will be able to load the application models.
+    'blog.apps.BlogConfig', 
 ]
 
 MIDDLEWARE = [
